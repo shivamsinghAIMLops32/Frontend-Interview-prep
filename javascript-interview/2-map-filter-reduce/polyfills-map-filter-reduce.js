@@ -37,8 +37,14 @@ const ans2 = array8.myFilter((val, i, array8) => val % 2 === 0);
 
 Array.prototype.myReduce = function (cb, initialValue) {
   let accumulator = initialValue || this[0];
-  for (let i = initialValue? 0 : 1; i < this.length; i++) {
+  for (let i = initialValue?initialValue : 1; i < this.length; i++) {
     accumulator = cb(accumulator, this[i], i, this);
   }
   return accumulator;
 }
+
+const array9 = [1, 2, 3, 4, 5, 6, 7];
+
+const ans3 = array9.myReduce((acc, val) => acc + val, 0);
+
+console.log(ans3); // 28
